@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fragua_custom_widgets/FGWidgets/FGCustomCard.dart';
-import 'package:fragua_custom_widgets/FGWidgets/FGCustomGridCard.dart';
+import 'package:fragua_custom_widgets/FGWidgets/FGDocumentViewer.dart';
 import 'package:fragua_custom_widgets/FGWidgets/utils/FGColors.dart';
 
 void main() {
@@ -18,13 +17,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: MyHomePage(title: 'Fragua Demo', numCards: 6),
+      home: const MyHomePage(title: 'Fragua Demo', numCards: 6),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({super.key, required this.title, numCards});
+  const MyHomePage({super.key, required this.title, numCards});
 
   final String title;
   final double numCards = 0;
@@ -32,27 +31,22 @@ class MyHomePage extends StatefulWidget {
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
+  
+enum CheemsPhotos { 
+  cheemsVaquero, 
+  cheemsDeChill
+}
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<IconData> icons = [
-    Icons.map_outlined,
-    Icons.assignment_outlined,
-    Icons.person,
-    Icons.message_outlined,
-    Icons.book,
-    Icons.flight
-  ];
 
-  final List<String> texts = [
-    'Mapa',
-    'Agenda',
-    'Speakers',
-    'Mensajes',
-    'Sellos',
-    'Configuración'
-  ];
+  final String filePathPDF = "assets/el_principito.pdf";
+  final bool isPDF = false;
 
-  final int numCards = 6;
+  final List<String> cheemsPhotos = [
+    "assets/cheems_vaquero.jpg",
+    "assets/cheems_de_chill.png"
+  ];
+  final CheemsPhotos numImage = CheemsPhotos.cheemsDeChill;
 
   @override
   Widget build(BuildContext context) {
@@ -60,22 +54,20 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         backgroundColor: fgPrimaryColor,
       ),
-      body: CustomCardGrid(
-        cards: List.generate(numCards, (index) {
-          return CustomCard(
-            iconSize: 60,
-            icon: icons[index], // Asigna un icono diferente
-            text: texts[index], // Asigna un texto diferente
-            onPressed: () {
-              print('Tarjeta ${texts[index]} presionada');
-            },
-            cardColor: Colors.white,
-            colorHovered: Colors.white10,
-            iconColor: fgPrimaryColor,
-            textStyle: const TextStyle(fontSize: 14.0, color: fgPrimaryColor, fontWeight: FontWeight.w600),
-            elevation: 2.0,
-          );
-        }),
+      body: Padding(
+        padding: const EdgeInsets.all(60.0),
+        child: Expanded(
+          child:
+            Center(
+              child:
+                DocumentViewer(
+                  size: const Size(1000, 1000),
+                  filePath: isPDF ? filePathPDF : cheemsPhotos[numImage.index],  // Ruta de la imagen o PDF
+                  isPDF: isPDF,  // Cambia a true si es un PDF
+                  margin: const EdgeInsets.all(0.0),
+                ),
+            ),
+        ),
       ),
     );
   }
