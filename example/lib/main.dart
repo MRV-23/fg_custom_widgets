@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fragua_custom_widgets/FGWidgets/FGCustomButton.dart';
 import 'package:fragua_custom_widgets/FGWidgets/FGLoading.dart';
 import 'package:fragua_custom_widgets/FGWidgets/FGTextField.dart';
+import 'package:fragua_custom_widgets/utils/FGColors.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Fragua Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        colorScheme: ColorScheme.fromSeed(seedColor: FGColors.fgBackgroundColor),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Fragua Demo'),
@@ -61,6 +63,8 @@ class _MyHomePageState extends State<MyHomePage> {
             FGTextField(
               label: "Username",
               icon: Icons.person,
+              error: '',
+              showIcon: false,
               onChanged: (value) {
                 print('Entro onchanged:${value}');
               }),
