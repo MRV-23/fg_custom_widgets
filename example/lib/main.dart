@@ -40,13 +40,13 @@ enum CheemsPhotos {
 class _MyHomePageState extends State<MyHomePage> {
 
   final String filePathPDF = "assets/el_principito.pdf";
-  final bool isPDF = false;
+  final bool isPDF = true;
 
   final List<String> cheemsPhotos = [
     "assets/cheems_vaquero.jpg",
     "assets/cheems_de_chill.png"
   ];
-  final CheemsPhotos numImage = CheemsPhotos.cheemsDeChill;
+  final CheemsPhotos numImage = CheemsPhotos.cheemsVaquero;
 
   @override
   Widget build(BuildContext context) {
@@ -55,18 +55,20 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: fgPrimaryColor,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(60.0),
-        child: Expanded(
-          child:
-            Center(
-              child:
-                DocumentViewer(
-                  size: const Size(1000, 1000),
+        padding: const EdgeInsets.all(80.0),
+        child: Center(
+          child: Column(
+            children: [
+              Expanded(
+                child: DocumentViewer(
+                  size: const Size(1000, 800),
                   filePath: isPDF ? filePathPDF : cheemsPhotos[numImage.index],  // Ruta de la imagen o PDF
                   isPDF: isPDF,  // Cambia a true si es un PDF
                   margin: const EdgeInsets.all(0.0),
                 ),
-            ),
+              ),
+            ],
+          ),
         ),
       ),
     );

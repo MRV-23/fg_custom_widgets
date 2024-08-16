@@ -37,7 +37,7 @@ class DocumentViewer extends StatelessWidget {
               child: isPDF ? _showPDFViewer() : _buildImageViewer(),
             ),
           ),
-      ),
+        ),
     );
   }
 
