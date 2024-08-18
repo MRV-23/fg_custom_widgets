@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:fragua_custom_widgets/FGWidgets/FGCardSpeaker.dart';
 import 'package:fragua_custom_widgets/FGWidgets/FGCustomButton.dart';
 import 'package:fragua_custom_widgets/FGWidgets/FGLoading.dart';
 import 'package:fragua_custom_widgets/FGWidgets/FGTextField.dart';
+import 'package:fragua_custom_widgets/FGWidgets/FGCardView.dart';
 import 'package:fragua_custom_widgets/utils/FGColors.dart';
 
 
@@ -88,8 +90,21 @@ class _MyHomePageState extends State<MyHomePage> {
               alignment: Alignment.center,
               marginButton: const EdgeInsets.symmetric(horizontal: 0.0),
             ),
+            //const SizedBox(height: 40.0),
+            //const FGLoadingWidget(),
             const SizedBox(height: 40.0),
-            const FGLoadingWidget(),
+            Fgcardview('Título', 'Subtítulo', 'Aquí estárticipar en la definición de políticas y programas en la '
+
+            ),
+            
+            Fgcardspeaker(
+              urlImage: 'https://images4.alphacoders.com/102/1029798.jpg',
+              title: 'Taller de Tecnologias',
+              hours: '10:00 am - 10:30 am',
+              name: 'Martin de Jesus Rubio Vazquez',
+            )
+
+
           ],
         ),
       ),
