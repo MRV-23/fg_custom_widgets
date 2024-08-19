@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:fragua_custom_widgets/FGWidgets/FGCardSpeaker.dart';
 import 'package:fragua_custom_widgets/FGWidgets/FGCustomButton.dart';
 import 'package:fragua_custom_widgets/FGWidgets/FGLoading.dart';
 import 'package:fragua_custom_widgets/FGWidgets/FGTextField.dart';
+import 'package:fragua_custom_widgets/FGWidgets/FGCardView.dart';
+import 'package:fragua_custom_widgets/utils/FGColors.dart';
+import 'package:fragua_custom_widgets/FGWidgets/FGMensaje.dart';
+
+
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Fragua Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        colorScheme: ColorScheme.fromSeed(seedColor: FGColors.fgBackgroundColor),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Fragua Demo'),
@@ -61,6 +67,8 @@ class _MyHomePageState extends State<MyHomePage> {
             FGTextField(
               label: "Username",
               icon: Icons.person,
+              error: '',
+              showIcon: false,
               onChanged: (value) {
                 print('Entro onchanged:${value}');
               }),
@@ -84,8 +92,24 @@ class _MyHomePageState extends State<MyHomePage> {
               alignment: Alignment.center,
               marginButton: const EdgeInsets.symmetric(horizontal: 0.0),
             ),
+            //const SizedBox(height: 40.0),
+            //const FGLoadingWidget(),
             const SizedBox(height: 40.0),
-            const FGLoadingWidget(),
+            //Fgcardview('Título', 'Subtítulo', 'Aquí estárticipar en la definición de políticas y programas en la '),
+            FGMensaje(
+              title: 'Haz sido invitado',
+              subTitle: 'The coca-cola company ',
+              description: 'The coca-cola company te ha invitado Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+              icon: Icons.message_outlined,
+            ),
+            Fgcardspeaker(
+              urlImage: 'https://images4.alphacoders.com/102/1029798.jpg',
+              title: 'Taller de Tecnologias',
+              hours: '10:00 am - 10:30 am',
+              name: 'Martin de Jesus Rubio Vazquez',
+            )
+
+
           ],
         ),
       ),

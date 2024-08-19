@@ -1,13 +1,14 @@
 library fragua_custom_widgets;
 
 //TextFieldCustom by Fragua
-import 'FGWidgets/FGTextField.dart';
-
+export  'FGWidgets/FGTextField.dart';
 //Loading by Fragua
-import 'FGWidgets/FGLoading.dart';
+export  'FGWidgets/FGLoading.dart';
 //CustomButton by Fragua
-import 'FGWidgets/FGCustomButton.dart';
-
+export 'FGWidgets/FGCustomButton.dart';
+//CostomCard by Fragua
+export 'FGWidgets/FGCardSpeaker.dart';
+//Costom Card by Fragua
+export 'FGWidgets/FGCardView.dart';
 //Utils Colors by Fragua
-import 'FGWidgets/utils/FGColors.dart';
-
+export  'utils/FGColors.dart';
