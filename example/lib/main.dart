@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:fragua_custom_widgets/FGWidgets/FGDocumentViewer.dart';
+import 'package:fragua_custom_widgets/FGWidgets/utils/FGColors.dart';
 import 'package:fragua_custom_widgets/FGWidgets/FGCardSpeaker.dart';
 import 'package:fragua_custom_widgets/FGWidgets/FGCustomButton.dart';
 import 'package:fragua_custom_widgets/FGWidgets/FGLoading.dart';
 import 'package:fragua_custom_widgets/FGWidgets/FGTextField.dart';
 import 'package:fragua_custom_widgets/FGWidgets/FGCardView.dart';
-import 'package:fragua_custom_widgets/utils/FGColors.dart';
 import 'package:fragua_custom_widgets/FGWidgets/FGMensaje.dart';
-
 
 
 void main() {
@@ -24,40 +24,61 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: FGColors.fgBackgroundColor),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Fragua Demo'),
+      home: const MyHomePage(title: 'Fragua Demo', numCards: 6),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key, required this.title, numCards});
 
   final String title;
+  final double numCards = 0;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
+  
+enum CheemsPhotos { 
+  cheemsVaquero, 
+  cheemsDeChill
+}
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  final String filePathPDF = "assets/el_principito.pdf";
+  final bool isPDF = true;
+
+  final List<String> cheemsPhotos = [
+    "assets/cheems_vaquero.jpg",
+    "assets/cheems_de_chill.png"
+  ];
+  final CheemsPhotos numImage = CheemsPhotos.cheemsVaquero;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        backgroundColor: fgPrimaryColor,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Center(
+              child: Column(
+                children: [
+                  Expanded(
+                    child: DocumentViewer(
+                      size: const Size(1000, 800),
+                      filePath: isPDF ? filePathPDF : cheemsPhotos[numImage.index],  // Ruta de la imagen o PDF
+                      isPDF: isPDF,  // Cambia a true si es un PDF
+                      margin: const EdgeInsets.all(0.0),
+                    ),
+                  ),
+                ],
+              ),
+            ),
             const Text('Click presionado'),
             Text(
               '$_counter',
@@ -108,8 +129,6 @@ class _MyHomePageState extends State<MyHomePage> {
               hours: '10:00 am - 10:30 am',
               name: 'Martin de Jesus Rubio Vazquez',
             )
-
-
           ],
         ),
       ),
