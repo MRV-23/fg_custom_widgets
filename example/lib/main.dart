@@ -5,6 +5,8 @@ import 'package:fragua_custom_widgets/FGWidgets/FGLoading.dart';
 import 'package:fragua_custom_widgets/FGWidgets/FGTextField.dart';
 import 'package:fragua_custom_widgets/FGWidgets/FGCardView.dart';
 import 'package:fragua_custom_widgets/utils/FGColors.dart';
+import 'package:fragua_custom_widgets/FGWidgets/FGMensaje.dart';
+
 
 
 void main() {
@@ -93,10 +95,13 @@ class _MyHomePageState extends State<MyHomePage> {
             //const SizedBox(height: 40.0),
             //const FGLoadingWidget(),
             const SizedBox(height: 40.0),
-            Fgcardview('Título', 'Subtítulo', 'Aquí estárticipar en la definición de políticas y programas en la '
-
+            //Fgcardview('Título', 'Subtítulo', 'Aquí estárticipar en la definición de políticas y programas en la '),
+            FGMensaje(
+              title: 'Haz sido invitado',
+              subTitle: 'The coca-cola company ',
+              description: 'The coca-cola company te ha invitado Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+              icon: Icons.message_outlined,
             ),
-            
             Fgcardspeaker(
               urlImage: 'https://images4.alphacoders.com/102/1029798.jpg',
               title: 'Taller de Tecnologias',
