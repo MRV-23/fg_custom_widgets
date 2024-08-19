@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fragua_custom_widgets/FGWidgets/utils/FGColors.dart';
+import 'package:fragua_custom_widgets/fragua_custom_widgets.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 
@@ -27,7 +27,7 @@ class DocumentViewer extends StatelessWidget {
       child:
         Card(
           margin: margin,
-          color: fgBackgroundColor,
+          color: FGColors.fgBackgroundColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.0),
           ),
